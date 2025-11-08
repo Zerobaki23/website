@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hiragana Learning App</title>
+    <title>Hiragana Bloom</title>
     <style>
         * {
             margin: 0;
@@ -13,214 +13,170 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #ffeef8 0%, #ffe5f1 50%, #ffd6ea 100%);
             min-height: 100vh;
             padding: 20px;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
-            animation: float 20s ease-in-out infinite;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) translateX(0); }
-            50% { transform: translateY(-20px) translateX(10px); }
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
-            position: relative;
-            z-index: 1;
         }
 
         .header {
             text-align: center;
-            margin-bottom: 40px;
-            animation: fadeIn 1s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+            margin-bottom: 30px;
+            background: white;
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 8px 30px rgba(255, 105, 180, 0.15);
         }
 
         .header h1 {
-            font-size: 3.5em;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            margin-bottom: 10px;
+            font-size: 2.5em;
+            color: #e91e63;
+            margin-bottom: 5px;
         }
 
         .header p {
-            font-size: 1.2em;
-            color: rgba(255,255,255,0.9);
+            color: #f48fb1;
+            font-size: 1.1em;
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
+            background: white;
+            border-radius: 25px;
             padding: 30px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
             margin-bottom: 20px;
-            animation: slideUp 0.5s ease-out;
+            box-shadow: 0 8px 30px rgba(255, 105, 180, 0.15);
         }
 
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        .section-title {
+            font-size: 1.3em;
+            color: #e91e63;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
         }
 
-        .grid {
+        .column-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 15px;
             margin-bottom: 20px;
         }
 
         .column-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 15px;
-            padding: 25px;
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+            border: 3px solid transparent;
+            border-radius: 20px;
+            padding: 20px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            position: relative;
         }
 
         .column-card:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(233, 30, 99, 0.3);
+            border-color: #e91e63;
         }
 
         .column-card .char {
-            font-size: 3em;
-            color: white;
-            margin-bottom: 10px;
+            font-size: 2.5em;
+            color: #e91e63;
             font-weight: bold;
+            margin-bottom: 8px;
         }
 
         .column-card .name {
-            color: white;
+            color: #c2185b;
             font-weight: 600;
-            font-size: 0.9em;
+            font-size: 0.85em;
         }
 
         .column-card .count {
-            color: rgba(255,255,255,0.8);
+            color: #f06292;
             font-size: 0.75em;
             margin-top: 5px;
         }
 
-        .all-card {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        .column-card .progress-mini {
+            width: 100%;
+            height: 6px;
+            background: rgba(233, 30, 99, 0.2);
+            border-radius: 3px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+
+        .column-card .progress-mini-fill {
+            height: 100%;
+            background: #e91e63;
+            transition: width 0.3s ease;
+        }
+
+        .column-card .progress-text {
+            color: #e91e63;
+            font-size: 0.75em;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        .column-card .completion-badge {
+            background: #4caf50;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.7em;
+            margin-top: 8px;
+            display: inline-block;
+        }
+
+        .practice-all {
+            background: linear-gradient(135deg, #ff6090 0%, #e91e63 100%);
             grid-column: 1 / -1;
-            padding: 40px;
+            padding: 30px;
+            color: white;
         }
 
-        .difficulty-selector {
-            text-align: center;
-            margin-bottom: 30px;
+        .practice-all .char {
+            color: white;
         }
 
-        .difficulty-selector h3 {
-            color: #667eea;
-            margin-bottom: 20px;
-            font-size: 1.5em;
-        }
-
-        .difficulty-buttons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .difficulty-btn {
-            background: white;
-            color: #667eea;
-            border: 3px solid #667eea;
-            padding: 15px 40px;
-            border-radius: 10px;
+        .practice-all .name {
+            color: white;
             font-size: 1.1em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
         }
 
-        .difficulty-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-        }
-
-        .difficulty-btn.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-        }
-
-        .difficulty-btn.easy {
-            border-color: #84fab0;
-            color: #0d5d3d;
-        }
-
-        .difficulty-btn.easy.active {
-            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
-            color: white;
-        }
-
-        .difficulty-btn.medium {
-            border-color: #f5af19;
-            color: #8b4513;
-        }
-
-        .difficulty-btn.medium.active {
-            background: linear-gradient(135deg, #f5af19 0%, #f12711 100%);
-            color: white;
-        }
-
-        .difficulty-btn.hard {
-            border-color: #fc466b;
-            color: #8b0000;
-        }
-
-        .difficulty-btn.hard.active {
-            background: linear-gradient(135deg, #fc466b 0%, #3f5efb 100%);
-            color: white;
+        .practice-all .count {
+            color: rgba(255,255,255,0.9);
         }
 
         .btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #ff6090 0%, #e91e63 100%);
             color: white;
             border: none;
             padding: 15px 30px;
-            border-radius: 10px;
+            border-radius: 15px;
             font-size: 1.1em;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             font-weight: 600;
             width: 100%;
+            box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
         }
 
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #e91e63;
+            border: 2px solid #e91e63;
         }
 
         .btn:disabled {
@@ -228,52 +184,57 @@
             cursor: not-allowed;
         }
 
-        .btn-secondary {
-            background: white;
-            color: #667eea;
-            border: 2px solid #667eea;
-        }
-
-        .study-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 15px;
-        }
-
-        .char-box {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 15px;
-            padding: 25px;
+        .walkthrough-container {
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            padding: 20px;
         }
 
-        .char-box:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-        }
-
-        .char-box .char {
-            font-size: 3.5em;
-            color: white;
-            margin-bottom: 10px;
+        .walkthrough-char {
+            font-size: 8em;
+            color: #e91e63;
+            margin: 20px 0;
             font-weight: bold;
         }
 
-        .char-box .romaji {
-            font-size: 1.3em;
-            color: rgba(255,255,255,0.9);
+        .walkthrough-romaji {
+            font-size: 2.5em;
+            color: #f06292;
+            font-weight: bold;
+            margin: 15px 0;
         }
 
-        .quiz-container {
-            text-align: center;
+        .walkthrough-tip {
+            font-size: 1.1em;
+            color: #666;
+            margin: 20px 0;
+            padding: 15px;
+            background: #fce4ec;
+            border-radius: 15px;
+        }
+
+        .audio-btn {
+            background: linear-gradient(135deg, #ff6090 0%, #e91e63 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 12px;
+            font-size: 1em;
+            cursor: pointer;
+            margin: 10px 5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+        }
+
+        .audio-btn:hover {
+            transform: scale(1.05);
         }
 
         .progress-bar {
             width: 100%;
-            height: 15px;
-            background: rgba(0,0,0,0.1);
+            height: 12px;
+            background: #fce4ec;
             border-radius: 10px;
             overflow: hidden;
             margin-bottom: 20px;
@@ -281,7 +242,7 @@
 
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(90deg, #ff6090 0%, #e91e63 100%);
             transition: width 0.3s ease;
         }
 
@@ -289,48 +250,94 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: 15px;
-            color: #666;
+            color: #c2185b;
             font-weight: 600;
         }
 
-        .difficulty-badge {
-            display: inline-block;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            font-weight: bold;
-            margin-bottom: 10px;
+        .difficulty-buttons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
         }
 
-        .difficulty-badge.easy {
-            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
-            color: white;
+        .difficulty-btn {
+            background: white;
+            color: #e91e63;
+            border: 3px solid #f8bbd0;
+            padding: 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 1em;
         }
 
-        .difficulty-badge.medium {
-            background: linear-gradient(135deg, #f5af19 0%, #f12711 100%);
-            color: white;
+        .difficulty-btn:hover {
+            border-color: #e91e63;
+            transform: translateY(-2px);
         }
 
-        .difficulty-badge.hard {
-            background: linear-gradient(135deg, #fc466b 0%, #3f5efb 100%);
+        .difficulty-btn.active {
+            background: linear-gradient(135deg, #ff6090 0%, #e91e63 100%);
             color: white;
+            border-color: #e91e63;
+        }
+
+        .column-selector {
+            background: #fce4ec;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .column-selector h4 {
+            color: #e91e63;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .column-checkboxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 10px;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .checkbox-label:hover {
+            background: #fff0f5;
+            transform: translateX(5px);
+        }
+
+        .checkbox-label input {
+            width: 18px;
+            height: 18px;
+            margin-right: 8px;
+            cursor: pointer;
         }
 
         .quiz-char {
-            font-size: 8em;
-            color: #667eea;
+            font-size: 7em;
+            color: #e91e63;
             margin: 30px 0;
             font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
 
         input[type="text"] {
             width: 100%;
-            padding: 20px;
-            font-size: 1.8em;
-            border: 3px solid #667eea;
-            border-radius: 10px;
+            padding: 18px;
+            font-size: 1.6em;
+            border: 3px solid #f8bbd0;
+            border-radius: 15px;
             text-align: center;
             margin-bottom: 20px;
             transition: all 0.3s ease;
@@ -338,32 +345,27 @@
 
         input[type="text"]:focus {
             outline: none;
-            border-color: #764ba2;
-            box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+            border-color: #e91e63;
+            box-shadow: 0 0 20px rgba(233, 30, 99, 0.3);
         }
 
         .feedback {
-            padding: 25px;
-            border-radius: 10px;
+            padding: 20px;
+            border-radius: 15px;
             margin-top: 20px;
-            font-size: 1.5em;
+            font-size: 1.4em;
             font-weight: bold;
-            animation: bounce 0.5s ease;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            text-align: center;
         }
 
         .feedback.correct {
-            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
-            color: #0d5d3d;
+            background: #c8e6c9;
+            color: #2e7d32;
         }
 
         .feedback.wrong {
-            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-            color: #8b0000;
+            background: #ffcdd2;
+            color: #c62828;
         }
 
         .results {
@@ -371,49 +373,53 @@
         }
 
         .trophy {
-            font-size: 6em;
+            font-size: 5em;
             margin: 20px 0;
         }
 
         .score {
-            font-size: 4em;
-            color: #667eea;
+            font-size: 3.5em;
+            color: #e91e63;
             font-weight: bold;
             margin: 20px 0;
-        }
-
-        .percentage {
-            font-size: 1.8em;
-            color: #666;
-            margin-bottom: 30px;
-        }
-
-        .section-title {
-            color: #667eea;
-            font-size: 1.5em;
-            margin: 30px 0 15px 0;
-            font-weight: bold;
         }
 
         .hidden {
             display: none;
         }
 
+        .mix-option {
+            background: #fce4ec;
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 15px;
+        }
+
+        .mix-option label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: 600;
+            color: #e91e63;
+        }
+
+        .mix-option input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.5em;
+            .difficulty-buttons {
+                grid-template-columns: 1fr;
             }
-            .quiz-char {
+            .walkthrough-char {
                 font-size: 5em;
             }
-            input[type="text"] {
-                font-size: 1.3em;
-            }
-            .difficulty-buttons {
-                flex-direction: column;
-            }
-            .difficulty-btn {
-                width: 100%;
+            .quiz-char {
+                font-size: 4em;
             }
         }
     </style>
@@ -423,12 +429,13 @@
         <!-- Menu Screen -->
         <div id="menu-screen">
             <div class="header">
-                <h1>🌸 Hiragana Learning 🌸</h1>
-                <p>Master Japanese hiragana one column at a time!</p>
+                <h1>🌸 Hiragana Bloom 🌸</h1>
+                <p>Nurture your Japanese journey</p>
             </div>
 
             <div class="card">
-                <div class="grid" id="column-grid"></div>
+                <div class="section-title">Learning Modules</div>
+                <div class="column-grid" id="column-grid"></div>
             </div>
         </div>
 
@@ -439,25 +446,58 @@
             </div>
 
             <div class="card">
-                <h2 id="study-title" class="section-title">📚 Study Mode</h2>
-                <div id="study-content"></div>
+                <div class="section-title">📚 Character Walkthrough</div>
+                <div class="quiz-info">
+                    <span id="walkthrough-progress">Character 1 of 5</span>
+                    <span id="walkthrough-column"></span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="walkthrough-progress-fill"></div>
+                </div>
+
+                <div class="walkthrough-container">
+                    <div class="walkthrough-char" id="walkthrough-char">あ</div>
+                    <div class="walkthrough-romaji" id="walkthrough-romaji">a</div>
+                    <button class="audio-btn" onclick="speakCharacter()">
+                        🔊 Listen to pronunciation
+                    </button>
+                    <div class="walkthrough-tip" id="walkthrough-tip">
+                        This character represents the sound "a" as in "father"
+                    </div>
+                    <div style="display: flex; gap: 10px; margin-top: 20px;">
+                        <button class="btn btn-secondary" id="prev-btn" onclick="previousChar()" style="flex: 1;">◀ Previous</button>
+                        <button class="btn" id="next-btn" onclick="nextChar()" style="flex: 1;">Next ▶</button>
+                    </div>
+                </div>
             </div>
 
             <div class="card">
-                <div class="difficulty-selector">
-                    <h3>🎯 Select Difficulty Level</h3>
-                    <div class="difficulty-buttons">
-                        <button class="difficulty-btn easy active" onclick="selectDifficulty('easy')">
-                            😊 Easy<br><small>Single Characters</small>
-                        </button>
-                        <button class="difficulty-btn medium" onclick="selectDifficulty('medium')">
-                            😐 Medium<br><small>2-Character Words</small>
-                        </button>
-                        <button class="difficulty-btn hard" onclick="selectDifficulty('hard')">
-                            😤 Hard<br><small>3-Character Words</small>
-                        </button>
-                    </div>
+                <div class="section-title">🎯 Quiz Settings</div>
+                
+                <div class="difficulty-buttons">
+                    <button class="difficulty-btn easy active" onclick="selectDifficulty('easy')">
+                        😊 Easy<br><small>Single Characters</small>
+                    </button>
+                    <button class="difficulty-btn medium" onclick="selectDifficulty('medium')">
+                        😐 Medium<br><small>2-Character Words</small>
+                    </button>
+                    <button class="difficulty-btn hard" onclick="selectDifficulty('hard')">
+                        😤 Hard<br><small>3-Character Words</small>
+                    </button>
                 </div>
+
+                <div id="mix-option" class="mix-option hidden">
+                    <label>
+                        <input type="checkbox" id="mix-columns-checkbox">
+                        Mix with other hiragana columns
+                    </label>
+                </div>
+
+                <div id="column-selector" class="column-selector hidden">
+                    <h4>Select columns to mix:</h4>
+                    <div class="column-checkboxes" id="column-checkboxes"></div>
+                </div>
+
                 <button class="btn" onclick="startQuiz()">🎯 Start Quiz</button>
             </div>
         </div>
@@ -465,23 +505,28 @@
         <!-- Quiz Screen -->
         <div id="quiz-screen" class="hidden">
             <div class="card">
-                <div class="text-center">
-                    <span class="difficulty-badge" id="difficulty-badge">Easy</span>
-                </div>
                 <div class="quiz-info">
-                    <span id="question-num">Question 1 of 5</span>
-                    <span id="score-display">Score: 0/5</span>
+                    <span id="question-num">Question 1 of 15</span>
+                    <span id="score-display">Score: 0/15</span>
                 </div>
                 <div class="progress-bar">
                     <div class="progress-fill" id="progress-fill"></div>
                 </div>
             </div>
 
-            <div class="card quiz-container">
-                <div class="quiz-char" id="quiz-char">あ</div>
-                <input type="text" id="answer-input" placeholder="Type the romaji..." autocomplete="off">
-                <button class="btn" id="submit-btn" onclick="submitAnswer()">Submit Answer</button>
-                <div id="feedback"></div>
+            <div class="card">
+                <div style="text-align: center;">
+                    <div class="quiz-char" id="quiz-char">あ</div>
+                    <button class="audio-btn" onclick="speakQuizCharacter()">
+                        🔊 Listen
+                    </button>
+                    <input type="text" id="answer-input" placeholder="Type the romaji..." autocomplete="off">
+                    <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                        <button class="btn" id="submit-btn" onclick="submitAnswer()" style="flex: 1;">Submit</button>
+                        <button class="btn btn-secondary" id="reveal-btn" onclick="revealAnswer()" style="flex: 1;">👁️ Reveal</button>
+                    </div>
+                    <div id="feedback"></div>
+                </div>
             </div>
         </div>
 
@@ -489,10 +534,9 @@
         <div id="results-screen" class="hidden">
             <div class="card results">
                 <div class="trophy">🏆</div>
-                <h2 style="color: #667eea; font-size: 2.5em; margin-bottom: 20px;">Quiz Complete! 🎉</h2>
-                <div id="results-difficulty-badge"></div>
+                <h2 style="color: #e91e63; font-size: 2em; margin-bottom: 20px;">Quiz Complete!</h2>
                 <div class="score" id="final-score">0/0</div>
-                <div class="percentage" id="final-percentage">0% Correct</div>
+                <div style="font-size: 1.5em; color: #666; margin-bottom: 30px;" id="final-percentage">0% Correct</div>
                 <button class="btn" onclick="retryQuiz()" style="margin-bottom: 15px;">🔄 Try Again</button>
                 <button class="btn btn-secondary" onclick="backToMenu()">🏠 Back to Menu</button>
             </div>
@@ -501,16 +545,85 @@
 
     <script>
         const HIRAGANA = {
-            a: { name: 'Vowels (あ行)', chars: [['あ', 'a'], ['い', 'i'], ['う', 'u'], ['え', 'e'], ['お', 'o']] },
-            k: { name: 'K Column (か行)', chars: [['か', 'ka'], ['き', 'ki'], ['く', 'ku'], ['け', 'ke'], ['こ', 'ko']] },
-            s: { name: 'S Column (さ行)', chars: [['さ', 'sa'], ['し', 'shi'], ['す', 'su'], ['せ', 'se'], ['そ', 'so']] },
-            t: { name: 'T Column (た行)', chars: [['た', 'ta'], ['ち', 'chi'], ['つ', 'tsu'], ['て', 'te'], ['と', 'to']] },
-            n: { name: 'N Column (な行)', chars: [['な', 'na'], ['に', 'ni'], ['ぬ', 'nu'], ['ね', 'ne'], ['の', 'no']] },
-            h: { name: 'H Column (は行)', chars: [['は', 'ha'], ['ひ', 'hi'], ['ふ', 'fu'], ['へ', 'he'], ['ほ', 'ho']] },
-            m: { name: 'M Column (ま行)', chars: [['ま', 'ma'], ['み', 'mi'], ['む', 'mu'], ['め', 'me'], ['も', 'mo']] },
-            y: { name: 'Y Column (や行)', chars: [['や', 'ya'], ['ゆ', 'yu'], ['よ', 'yo']] },
-            r: { name: 'R Column (ら行)', chars: [['ら', 'ra'], ['り', 'ri'], ['る', 'ru'], ['れ', 're'], ['ろ', 'ro']] },
-            w: { name: 'W Column (わ行)', chars: [['わ', 'wa'], ['を', 'wo'], ['ん', 'n']] }
+            a: { name: 'Vowels (あ行)', chars: [
+                ['あ', 'a', 'Pronounced like "a" in "father"'],
+                ['い', 'i', 'Pronounced like "ee" in "see"'],
+                ['う', 'u', 'Pronounced like "oo" in "food"'],
+                ['え', 'e', 'Pronounced like "e" in "bed"'],
+                ['お', 'o', 'Pronounced like "o" in "go"']
+            ]},
+            k: { name: 'K Column (か行)', chars: [
+                ['か', 'ka', 'Like "ka" in "car"'],
+                ['き', 'ki', 'Like "key"'],
+                ['く', 'ku', 'Like "coo"'],
+                ['け', 'ke', 'Like "keh" in "kept"'],
+                ['こ', 'ko', 'Like "co" in "code"']
+            ]},
+            s: { name: 'S Column (さ行)', chars: [
+                ['さ', 'sa', 'Like "sa" in "saw"'],
+                ['し', 'shi', 'Like "she"'],
+                ['す', 'su', 'Like "sue"'],
+                ['せ', 'se', 'Like "se" in "set"'],
+                ['そ', 'so', 'Like "so" in "soap"']
+            ]},
+            t: { name: 'T Column (た行)', chars: [
+                ['た', 'ta', 'Like "ta" in "taco"'],
+                ['ち', 'chi', 'Like "chee" in "cheese"'],
+                ['つ', 'tsu', 'Like "tsunami" (with a T sound before su)'],
+                ['て', 'te', 'Like "te" in "tennis"'],
+                ['と', 'to', 'Like "toe"']
+            ]},
+            n: { name: 'N Column (な行)', chars: [
+                ['な', 'na', 'Like "na" in "na na na"'],
+                ['に', 'ni', 'Like "knee"'],
+                ['ぬ', 'nu', 'Like "new"'],
+                ['ね', 'ne', 'Like "ne" in "net"'],
+                ['の', 'no', 'Like "no"']
+            ]},
+            h: { name: 'H Column (は行)', chars: [
+                ['は', 'ha', 'Like "ha" in "haha"'],
+                ['ひ', 'hi', 'Like "he" in "heat"'],
+                ['ふ', 'fu', 'Like blowing out a candle, not "foo"'],
+                ['へ', 'he', 'Like "he" in "hen"'],
+                ['ほ', 'ho', 'Like "ho" in "hope"']
+            ]},
+            m: { name: 'M Column (ま行)', chars: [
+                ['ま', 'ma', 'Like "ma" in "mama"'],
+                ['み', 'mi', 'Like "me"'],
+                ['む', 'mu', 'Like "moo"'],
+                ['め', 'me', 'Like "me" in "men"'],
+                ['も', 'mo', 'Like "mo" in "most"']
+            ]},
+            y: { name: 'Y Column (や行)', chars: [
+                ['や', 'ya', 'Like "ya" in "yacht"'],
+                ['ゆ', 'yu', 'Like "you"'],
+                ['よ', 'yo', 'Like "yo"']
+            ]},
+            r: { name: 'R Column (ら行)', chars: [
+                ['ら', 'ra', 'Between "ra" and "la"'],
+                ['り', 'ri', 'Between "ree" and "lee"'],
+                ['る', 'ru', 'Between "roo" and "loo"'],
+                ['れ', 're', 'Between "re" and "le" in "red"'],
+                ['ろ', 'ro', 'Between "ro" and "lo"']
+            ]},
+            w: { name: 'W Column (わ行)', chars: [
+                ['わ', 'wa', 'Like "wa" in "water"'],
+                ['を', 'wo', 'Pronounced like "o" (particle)'],
+                ['ん', 'n', 'Like "n" in "sing" (nasal sound)']
+            ]}
+        };
+
+        const VOWEL_WORDS = {
+            medium: [
+                ['あい', 'ai'], ['いう', 'iu'], ['うえ', 'ue'], ['えい', 'ei'], 
+                ['おい', 'oi'], ['いえ', 'ie'], ['あお', 'ao'], ['うお', 'uo'], 
+                ['おう', 'ou'], ['ええ', 'ee']
+            ],
+            hard: [
+                ['あおい', 'aoi'], ['いうえ', 'iue'], ['おいおい', 'oioi'], 
+                ['あいう', 'aiu'], ['うえお', 'ueo'], ['おうえん', 'ouen'], 
+                ['あえん', 'aen'], ['いうん', 'iun'], ['おおい', 'ooi'], ['ええい', 'eei']
+            ]
         };
 
         let currentColumn = null;
@@ -518,11 +631,65 @@
         let quizData = [];
         let currentQuestion = 0;
         let score = 0;
+        let walkthroughChars = [];
+        let walkthroughIndex = 0;
+        let columnProgress = {};
+        let selectedColumns = new Set();
 
         function getAllChars() {
             let all = [];
-            Object.values(HIRAGANA).forEach(col => all.push(...col.chars));
+            Object.values(HIRAGANA).forEach(col => {
+                col.chars.forEach(char => all.push([char[0], char[1]]));
+            });
             return all;
+        }
+
+        function speakCharacter() {
+            const romaji = document.getElementById('walkthrough-romaji').textContent;
+            const utterance = new SpeechSynthesisUtterance(romaji);
+            utterance.lang = 'ja-JP';
+            utterance.rate = 0.7;
+            speechSynthesis.speak(utterance);
+        }
+
+        function speakQuizCharacter() {
+            const [char, romaji] = quizData[currentQuestion];
+            const utterance = new SpeechSynthesisUtterance(romaji);
+            utterance.lang = 'ja-JP';
+            utterance.rate = 0.7;
+            speechSynthesis.speak(utterance);
+        }
+
+        function loadProgress() {
+            const saved = localStorage.getItem('hiragana_progress');
+            if (saved) {
+                columnProgress = JSON.parse(saved);
+            } else {
+                Object.keys(HIRAGANA).forEach(key => {
+                    columnProgress[key] = { easy: 0, medium: 0, hard: 0 };
+                });
+                columnProgress['all'] = { easy: 0, medium: 0, hard: 0 };
+            }
+        }
+
+        function saveProgress() {
+            localStorage.setItem('hiragana_progress', JSON.stringify(columnProgress));
+        }
+
+        function updateColumnProgress(column, difficulty, percentage) {
+            if (!columnProgress[column]) {
+                columnProgress[column] = { easy: 0, medium: 0, hard: 0 };
+            }
+            if (percentage > columnProgress[column][difficulty]) {
+                columnProgress[column][difficulty] = percentage;
+                saveProgress();
+            }
+        }
+
+        function getColumnCompletion(column) {
+            if (!columnProgress[column]) return 0;
+            const prog = columnProgress[column];
+            return Math.round((prog.easy + prog.medium + prog.hard) / 3);
         }
 
         function getRandomChar(chars) {
@@ -537,12 +704,10 @@
                 let chars = [];
                 let romaji = [];
                 
-                // First character from base column
                 const firstChar = getRandomChar(baseChars);
                 chars.push(firstChar[0]);
                 romaji.push(firstChar[1]);
                 
-                // Rest from all available characters
                 for (let j = 1; j < wordLength; j++) {
                     const randomChar = getRandomChar(allChars);
                     chars.push(randomChar[0]);
@@ -552,7 +717,6 @@
                 const word = chars.join('');
                 const reading = romaji.join('');
                 
-                // Avoid duplicates
                 if (!usedWords.has(word)) {
                     words.push([word, reading]);
                     usedWords.add(word);
@@ -562,39 +726,49 @@
             return words;
         }
 
+        function getSelectedColumnsChars() {
+            let chars = [];
+            selectedColumns.forEach(key => {
+                HIRAGANA[key].chars.forEach(char => {
+                    chars.push([char[0], char[1]]);
+                });
+            });
+            return chars;
+        }
+
         function generateWords(columnKey, difficulty) {
             let words = [];
+            const mixWithOthers = document.getElementById('mix-columns-checkbox').checked;
             
-            if (difficulty === 'easy') {
-                // Single characters only
-                if (columnKey === 'all') {
-                    words = getAllChars();
-                } else {
-                    words = HIRAGANA[columnKey].chars;
+            if (columnKey === 'a') {
+                if (difficulty === 'easy') {
+                    words = HIRAGANA[columnKey].chars.map(c => [c[0], c[1]]);
+                } else if (difficulty === 'medium') {
+                    words = [...VOWEL_WORDS.medium];
+                } else if (difficulty === 'hard') {
+                    words = [...VOWEL_WORDS.hard];
                 }
-            } else if (difficulty === 'medium') {
-                // 2-character randomly generated words
-                const allChars = getAllChars();
-                
-                if (columnKey === 'all') {
-                    // Pure random 2-char combinations
-                    words = generateRandomWords(allChars, allChars, 30, 2);
-                } else {
-                    // First char from column, second random
-                    const columnChars = HIRAGANA[columnKey].chars;
-                    words = generateRandomWords(columnChars, allChars, 30, 2);
-                }
-            } else if (difficulty === 'hard') {
-                // 3-character randomly generated words
-                const allChars = getAllChars();
-                
-                if (columnKey === 'all') {
-                    // Pure random 3-char combinations
-                    words = generateRandomWords(allChars, allChars, 30, 3);
-                } else {
-                    // First char from column, rest random
-                    const columnChars = HIRAGANA[columnKey].chars;
-                    words = generateRandomWords(columnChars, allChars, 30, 3);
+            } else {
+                if (difficulty === 'easy') {
+                    if (columnKey === 'all') {
+                        words = getAllChars();
+                    } else {
+                        words = HIRAGANA[columnKey].chars.map(c => [c[0], c[1]]);
+                    }
+                } else if (difficulty === 'medium' || difficulty === 'hard') {
+                    const wordLength = difficulty === 'medium' ? 2 : 3;
+                    const columnChars = columnKey === 'all' ? getAllChars() : HIRAGANA[columnKey].chars.map(c => [c[0], c[1]]);
+                    
+                    let availableChars;
+                    if (mixWithOthers && selectedColumns.size > 0) {
+                        availableChars = getSelectedColumnsChars();
+                    } else if (mixWithOthers) {
+                        availableChars = getAllChars();
+                    } else {
+                        availableChars = columnChars;
+                    }
+                    
+                    words = generateRandomWords(columnChars, availableChars, 30, wordLength);
                 }
             }
             
@@ -602,28 +776,63 @@
         }
 
         function initMenu() {
+            loadProgress();
             const grid = document.getElementById('column-grid');
             grid.innerHTML = '';
 
             Object.entries(HIRAGANA).forEach(([key, data]) => {
+                const completion = getColumnCompletion(key);
                 const card = document.createElement('div');
                 card.className = 'column-card';
                 card.onclick = () => startStudy(key);
+                
+                let completionHTML = '';
+                if (completion > 0) {
+                    if (completion === 100) {
+                        completionHTML = '<div class="completion-badge">✓ Complete</div>';
+                    } else {
+                        completionHTML = `
+                            <div class="progress-mini">
+                                <div class="progress-mini-fill" style="width: ${completion}%"></div>
+                            </div>
+                            <div class="progress-text">${completion}% Complete</div>
+                        `;
+                    }
+                }
+                
                 card.innerHTML = `
                     <div class="char">${data.chars[0][0]}</div>
                     <div class="name">${data.name}</div>
                     <div class="count">${data.chars.length} characters</div>
+                    ${completionHTML}
                 `;
                 grid.appendChild(card);
             });
 
+            const allCompletion = getColumnCompletion('all');
             const allCard = document.createElement('div');
-            allCard.className = 'column-card all-card';
+            allCard.className = 'column-card practice-all';
             allCard.onclick = () => startStudy('all');
+            
+            let allCompletionHTML = '';
+            if (allCompletion > 0) {
+                if (allCompletion === 100) {
+                    allCompletionHTML = '<div class="completion-badge">✓ Mastered!</div>';
+                } else {
+                    allCompletionHTML = `
+                        <div class="progress-mini">
+                            <div class="progress-mini-fill" style="width: ${allCompletion}%"></div>
+                        </div>
+                        <div class="progress-text">${allCompletion}% Complete</div>
+                    `;
+                }
+            }
+            
             allCard.innerHTML = `
                 <div class="char">✨</div>
-                <div class="name" style="font-size: 1.3em;">Practice All Columns</div>
-                <div class="count">Master all 46 hiragana characters!</div>
+                <div class="name">Practice All Columns</div>
+                <div class="count">Master 46 hiragana!</div>
+                ${allCompletionHTML}
             `;
             grid.appendChild(allCard);
         }
@@ -639,11 +848,26 @@
                 btn.classList.remove('active');
             });
             event.target.closest('.difficulty-btn').classList.add('active');
+            
+            const mixOption = document.getElementById('mix-option');
+            const columnSelector = document.getElementById('column-selector');
+            
+            if (level === 'medium' || level === 'hard') {
+                mixOption.classList.remove('hidden');
+                if (document.getElementById('mix-columns-checkbox').checked) {
+                    columnSelector.classList.remove('hidden');
+                }
+            } else {
+                mixOption.classList.add('hidden');
+                columnSelector.classList.add('hidden');
+            }
         }
 
         function startStudy(column) {
             currentColumn = column;
             currentDifficulty = 'easy';
+            walkthroughIndex = 0;
+            selectedColumns.clear();
             showScreen('study-screen');
 
             document.querySelectorAll('.difficulty-btn').forEach(btn => {
@@ -651,41 +875,81 @@
             });
             document.querySelector('.difficulty-btn.easy').classList.add('active');
 
-            const title = document.getElementById('study-title');
-            const content = document.getElementById('study-content');
-
             if (column === 'all') {
-                title.textContent = '📚 All Hiragana Characters';
-                content.innerHTML = '';
-                
-                Object.entries(HIRAGANA).forEach(([key, data]) => {
-                    const section = document.createElement('div');
-                    section.innerHTML = `<h3 class="section-title">${data.name}</h3>`;
-                    const grid = document.createElement('div');
-                    grid.className = 'study-grid';
-                    
-                    data.chars.forEach(([char, romaji]) => {
-                        grid.innerHTML += `
-                            <div class="char-box">
-                                <div class="char">${char}</div>
-                                <div class="romaji">${romaji}</div>
-                            </div>
-                        `;
-                    });
-                    
-                    section.appendChild(grid);
-                    content.appendChild(section);
-                });
+                walkthroughChars = getAllChars().map(c => [...c, 'Practice this character']);
             } else {
-                title.textContent = `📚 ${HIRAGANA[column].name}`;
-                content.innerHTML = '<div class="study-grid">' +
-                    HIRAGANA[column].chars.map(([char, romaji]) => `
-                        <div class="char-box">
-                            <div class="char">${char}</div>
-                            <div class="romaji">${romaji}</div>
-                        </div>
-                    `).join('') +
-                    '</div>';
+                walkthroughChars = HIRAGANA[column].chars;
+                document.getElementById('walkthrough-column').textContent = HIRAGANA[column].name;
+            }
+
+            updateWalkthrough();
+            setupColumnSelector();
+        }
+
+        function setupColumnSelector() {
+            const container = document.getElementById('column-checkboxes');
+            container.innerHTML = '';
+            
+            Object.entries(HIRAGANA).forEach(([key, data]) => {
+                const label = document.createElement('label');
+                label.className = 'checkbox-label';
+                label.innerHTML = `
+                    <input type="checkbox" value="${key}" onchange="toggleColumn('${key}')">
+                    <span>${data.name.split('(')[0]}</span>
+                `;
+                container.appendChild(label);
+            });
+
+            document.getElementById('mix-columns-checkbox').onchange = function() {
+                const selector = document.getElementById('column-selector');
+                if (this.checked && (currentDifficulty === 'medium' || currentDifficulty === 'hard')) {
+                    selector.classList.remove('hidden');
+                } else {
+                    selector.classList.add('hidden');
+                }
+            };
+        }
+
+        function toggleColumn(key) {
+            if (selectedColumns.has(key)) {
+                selectedColumns.delete(key);
+            } else {
+                selectedColumns.add(key);
+            }
+        }
+
+        function updateWalkthrough() {
+            const [char, romaji, tip] = walkthroughChars[walkthroughIndex];
+            
+            document.getElementById('walkthrough-char').textContent = char;
+            document.getElementById('walkthrough-romaji').textContent = romaji;
+            document.getElementById('walkthrough-tip').textContent = tip;
+            document.getElementById('walkthrough-progress').textContent = 
+                `Character ${walkthroughIndex + 1} of ${walkthroughChars.length}`;
+            document.getElementById('walkthrough-progress-fill').style.width = 
+                `${((walkthroughIndex + 1) / walkthroughChars.length) * 100}%`;
+
+            document.getElementById('prev-btn').disabled = walkthroughIndex === 0;
+            document.getElementById('next-btn').textContent = 
+                walkthroughIndex === walkthroughChars.length - 1 ? '🎉 Complete' : 'Next ▶';
+        }
+
+        function previousChar() {
+            if (walkthroughIndex > 0) {
+                walkthroughIndex--;
+                updateWalkthrough();
+            }
+        }
+
+        function nextChar() {
+            if (walkthroughIndex < walkthroughChars.length - 1) {
+                walkthroughIndex++;
+                updateWalkthrough();
+            } else {
+                document.querySelector('.section-title').scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center' 
+                });
             }
         }
 
@@ -694,11 +958,6 @@
             quizData = [...words].sort(() => Math.random() - 0.5).slice(0, 15);
             currentQuestion = 0;
             score = 0;
-
-            // Update difficulty badge
-            const badge = document.getElementById('difficulty-badge');
-            badge.textContent = currentDifficulty.charAt(0).toUpperCase() + currentDifficulty.slice(1);
-            badge.className = `difficulty-badge ${currentDifficulty}`;
 
             showScreen('quiz-screen');
             updateQuiz();
@@ -715,8 +974,30 @@
             document.getElementById('answer-input').value = '';
             document.getElementById('answer-input').disabled = false;
             document.getElementById('submit-btn').disabled = false;
+            document.getElementById('reveal-btn').disabled = false;
             document.getElementById('feedback').innerHTML = '';
             document.getElementById('answer-input').focus();
+        }
+
+        function revealAnswer() {
+            const [char, correct] = quizData[currentQuestion];
+            
+            document.getElementById('answer-input').disabled = true;
+            document.getElementById('submit-btn').disabled = true;
+            document.getElementById('reveal-btn').disabled = true;
+
+            const feedback = document.getElementById('feedback');
+            feedback.className = 'feedback wrong';
+            feedback.innerHTML = `The answer is: <strong>${correct}</strong>`;
+
+            setTimeout(() => {
+                if (currentQuestion + 1 < quizData.length) {
+                    currentQuestion++;
+                    updateQuiz();
+                } else {
+                    showResults();
+                }
+            }, 1500);
         }
 
         function submitAnswer() {
@@ -729,6 +1010,7 @@
 
             input.disabled = true;
             document.getElementById('submit-btn').disabled = true;
+            document.getElementById('reveal-btn').disabled = true;
 
             const feedback = document.getElementById('feedback');
             feedback.className = `feedback ${isCorrect ? 'correct' : 'wrong'}`;
@@ -752,9 +1034,7 @@
             document.getElementById('final-score').textContent = `${score}/${quizData.length}`;
             document.getElementById('final-percentage').textContent = `${percentage}% Correct`;
             
-            // Show difficulty badge in results
-            const resultsBadge = document.getElementById('results-difficulty-badge');
-            resultsBadge.innerHTML = `<span class="difficulty-badge ${currentDifficulty}">${currentDifficulty.charAt(0).toUpperCase() + currentDifficulty.slice(1)} Mode</span>`;
+            updateColumnProgress(currentColumn, currentDifficulty, percentage);
         }
 
         function retryQuiz() {
@@ -763,6 +1043,7 @@
 
         function backToMenu() {
             showScreen('menu-screen');
+            initMenu();
         }
 
         document.getElementById('answer-input').addEventListener('keypress', (e) => {
