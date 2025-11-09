@@ -13,7 +13,11 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
-            background: linear-gradient(180deg, #a8d5e2 0%, #b8dfe8 50%, #c8e9ee 100%);
+            background: 
+                linear-gradient(90deg, rgba(94, 184, 214, 0.05) 1px, transparent 1px),
+                linear-gradient(0deg, rgba(94, 184, 214, 0.05) 1px, transparent 1px),
+                linear-gradient(180deg, #1a3a4a 0%, #2c4a5a 50%, #1e3d4d 100%);
+            background-size: 40px 40px, 40px 40px, 100% 100%;
             min-height: 100vh;
             padding: 20px;
             position: relative;
@@ -1053,27 +1057,102 @@
             text-align: right;
         }
 
-        @media (max-width: 768px) {
-            .column-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .difficulty-buttons {
-                grid-template-columns: 1fr;
-            }
-            .practice-all-container {
-                flex-direction: column;
-            }
-            .action-buttons {
-                width: 100%;
-                justify-content: space-around;
-            }
-            .stats-grid,
-            .challenge-grid {
-                grid-template-columns: 1fr;
-            }
-            .quiz-actions {
-                grid-template-columns: 1fr;
-            }
+        /* Add this after your existing CSS */
+
+        /* Glow Effects */
+        .glow-options {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .glow-option {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            border: 3px solid white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .glow-option:hover {
+            transform: scale(1.1);
+        }
+
+        .glow-option.active {
+            transform: scale(1.15);
+            box-shadow: 0 0 15px currentColor;
+        }
+
+        /* Glow Classes */
+        .glow-blue {
+            --glow-color: #5eb8d6;
+            text-shadow: 0 0 10px var(--glow-color),
+                         0 0 20px var(--glow-color),
+                         0 0 30px var(--glow-color);
+        }
+
+        .glow-purple {
+            --glow-color: #9b6dff;
+            text-shadow: 0 0 10px var(--glow-color),
+                         0 0 20px var(--glow-color),
+                         0 0 30px var(--glow-color);
+        }
+
+        .glow-green {
+            --glow-color: #4caf50;
+            text-shadow: 0 0 10px var(--glow-color),
+                         0 0 20px var(--glow-color),
+                         0 0 30px var(--glow-color);
+        }
+
+        .glow-orange {
+            --glow-color: #ff9800;
+            text-shadow: 0 0 10px var(--glow-color),
+                         0 0 20px var(--glow-color),
+                         0 0 30px var(--glow-color);
+        }
+
+        /* Cursor Options */
+        .cursor-options {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .cursor-option {
+            padding: 10px 20px;
+            border-radius: 12px;
+            background: white;
+            border: 2px solid #d0e8f0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.2em;
+        }
+
+        .cursor-option:hover {
+            border-color: #5eb8d6;
+            transform: translateY(-2px);
+        }
+
+        .cursor-option.active {
+            background: #5eb8d6;
+            color: white;
+            border-color: #5eb8d6;
+        }
+
+        /* Custom Cursors */
+        .cursor-pencil {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%235eb8d6"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>') 0 24, auto;
+        }
+
+        .cursor-brush {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%235eb8d6"><path d="M7 14c-1.66 0-3 1.34-3 3 0 1.31-1.16 2-2 2 .92 1.22 2.49 2 4 2 2.21 0 4-1.79 4-4 0-1.66-1.34-3-3-3zm13.71-9.37l-1.34-1.34c-.39-.39-1.02-.39-1.41 0L9 12.25 11.75 15l8.96-8.96c.39-.39.39-1.02 0-1.41z"/></svg>') 0 24, auto;
+        }
+
+        .cursor-hand {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%235eb8d6"><path d="M23 5.5V20c0 2.2-1.8 4-4 4h-7.3c-1.08 0-2.1-.43-2.85-1.19L1 14.83s1.26-1.23 1.3-1.25c.22-.19.49-.29.79-.29.22 0 .42.06.6.16.04.01 4.31 2.46 4.31 2.46V4c0-.83.67-1.5 1.5-1.5S11 3.17 11 4v7h1V1.5c0-.83.67-1.5 1.5-1.5S15 .67 15 1.5V11h1V2.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5V11h1V5.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5z"/></svg>') 0 24, auto;
         }
     </style>
 </head>
@@ -1109,6 +1188,27 @@
                             <div class="label">Character<br>Lookup</div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 20px;">
+                <div class="section-title">🎨 Customization</div>
+                
+                <h4 style="color: #5a6c7d; margin-bottom: 10px;">Character Glow</h4>
+                <div class="glow-options">
+                    <div class="glow-option" style="background: #5eb8d6;" onclick="setGlow('blue')" title="Blue Glow"></div>
+                    <div class="glow-option" style="background: #9b6dff;" onclick="setGlow('purple')" title="Purple Glow"></div>
+                    <div class="glow-option" style="background: #4caf50;" onclick="setGlow('green')" title="Green Glow"></div>
+                    <div class="glow-option" style="background: #ff9800;" onclick="setGlow('orange')" title="Orange Glow"></div>
+                    <div class="glow-option" style="background: #e0e0e0;" onclick="setGlow('none')" title="No Glow"></div>
+                </div>
+
+                <h4 style="color: #5a6c7d; margin: 20px 0 10px;">Writing Cursor</h4>
+                <div class="cursor-options">
+                    <div class="cursor-option active" onclick="setCursor('default')">✍️ Default</div>
+                    <div class="cursor-option" onclick="setCursor('pencil')">📝 Pencil</div>
+                    <div class="cursor-option" onclick="setCursor('brush')">🖌️ Brush</div>
+                    <div class="cursor-option" onclick="setCursor('hand')">👆 Hand</div>
                 </div>
             </div>
 
@@ -1310,7 +1410,7 @@
             <div class="card">
                 <div class="section-title">Today's Challenges</div>
                 <div class="challenge-grid" id="challenge-grid">
-                    <div class="challenge-item" onclick="alert('Challenge coming soon!')">
+                    <div class="challenge-item" onclick="startDailyQuiz()">
                         <div class="challenge-icon">📝</div>
                         <div class="challenge-name">Quick Quiz</div>
                         <div class="challenge-points">+50 XP</div>
@@ -1384,6 +1484,41 @@
                 <div class="feature-icon">💡</div>
                 <div class="feature-title">Quick Reference</div>
                 <div class="feature-description">Type any romaji to instantly find the corresponding hiragana character and pronunciation tips!</div>
+            </div>
+        </div>
+
+        <!-- Daily Quiz Setup Screen -->
+        <div id="daily-quiz-setup" class="hidden">
+            <div class="card">
+                <button class="btn btn-secondary" onclick="backToChallengeScreen()">← Back to Challenges</button>
+            </div>
+
+            <div class="card">
+                <div class="section-title">📝 Daily Quick Quiz Setup</div>
+                <div class="feature-card" style="margin-bottom: 24px;">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-title">Quick Quiz Challenge</div>
+                    <div class="feature-description">Complete 10 questions to earn your daily points!</div>
+                </div>
+
+                <div class="difficulty-buttons">
+                    <button class="difficulty-btn easy active" onclick="selectDailyDifficulty('easy')">
+                        😊 Easy<br><small>Single Characters</small>
+                    </button>
+                    <button class="difficulty-btn medium" onclick="selectDailyDifficulty('medium')">
+                        😐 Medium<br><small>2-Character Words</small>
+                    </button>
+                    <button class="difficulty-btn hard" onclick="selectDailyDifficulty('hard')">
+                        😤 Hard<br><small>3-Character Words</small>
+                    </button>
+                </div>
+
+                <div class="column-selector">
+                    <h4>Select columns to include:</h4>
+                    <div class="column-checkboxes" id="daily-quiz-columns"></div>
+                </div>
+
+                <button class="btn" onclick="startDailyQuizGame()" id="start-daily-quiz">🎯 Start Daily Quiz</button>
             </div>
         </div>
     </div>
@@ -1495,6 +1630,8 @@
         let pronunciationData = [];
         let pronunciationIndex = 0;
         let pronunciationScore = 0;
+        let dailyQuizColumns = new Set(['a']); // Default to vowels
+        let dailyQuizDifficulty = 'easy';
 
         function getAllChars() {
             let all = [];
@@ -1753,6 +1890,7 @@
                 label.innerHTML = `
                     <input type="checkbox" value="${key}" onchange="toggleColumn('${key}')">
                     <span>${data.name}</span>
+
                 `;
                 container.appendChild(label);
             });
@@ -1921,6 +2059,15 @@
             document.getElementById('final-percentage').textContent = `${percentage}% Correct`;
             
             updateColumnProgress(currentColumn, currentDifficulty, percentage);
+            
+            // Update global stats
+            const totalQuizzes = parseInt(localStorage.getItem('total_quizzes') || '0') + 1;
+            const totalCorrect = parseInt(localStorage.getItem('total_correct') || '0') + score;
+            const totalAnswers = parseInt(localStorage.getItem('total_answers') || '0') + quizData.length;
+            
+            localStorage.setItem('total_quizzes', totalQuizzes);
+            localStorage.setItem('total_correct', totalCorrect);
+            localStorage.setItem('total_answers', totalAnswers);
         }
 
         function retryQuiz() {
@@ -2051,6 +2198,117 @@
             document.getElementById('streak-count').textContent = streak;
         }
 
+        function startDailyQuiz() {
+            showScreen('daily-quiz-setup');
+            setupDailyQuizColumns();
+        }
+
+        function backToChallengeScreen() {
+            showScreen('challenge-screen');
+        }
+
+        function setupDailyQuizColumns() {
+            const container = document.getElementById('daily-quiz-columns');
+            container.innerHTML = '';
+            
+            Object.entries(HIRAGANA).forEach(([key, data]) => {
+                const label = document.createElement('label');
+                label.className = 'checkbox-label';
+                const isChecked = dailyQuizColumns.has(key);
+                label.innerHTML = `
+                    <input type="checkbox" value="${key}" ${isChecked ? 'checked' : ''} onchange="toggleDailyQuizColumn('${key}')">
+                    <span>${data.name}</span>
+                `;
+                container.appendChild(label);
+            });
+        }
+
+        function toggleDailyQuizColumn(key) {
+            if (dailyQuizColumns.has(key)) {
+                dailyQuizColumns.delete(key);
+            } else {
+                dailyQuizColumns.add(key);
+            }
+            
+            // Update start button state
+            const startBtn = document.getElementById('start-daily-quiz');
+            startBtn.disabled = dailyQuizColumns.size === 0;
+        }
+
+        function selectDailyDifficulty(level) {
+            dailyQuizDifficulty = level;
+            document.querySelectorAll('#daily-quiz-setup .difficulty-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.closest('.difficulty-btn').classList.add('active');
+        }
+
+        function startDailyQuizGame() {
+            if (dailyQuizColumns.size === 0) {
+                alert('Please select at least one column!');
+                return;
+            }
+
+            // Get characters from selected columns
+            let selectedChars = [];
+            dailyQuizColumns.forEach(key => {
+                if (key === 'all') {
+                    selectedChars = [...selectedChars, ...getAllChars()];
+                } else {
+                    selectedChars = [...selectedChars, ...HIRAGANA[key].chars.map(c => [c[0], c[1]])];
+                }
+            });
+
+            // Generate quiz data based on difficulty
+            if (dailyQuizDifficulty === 'easy') {
+                quizData = [...selectedChars].sort(() => Math.random() - 0.5).slice(0, 10);
+            } else {
+                // For medium/hard, generate words using selected characters
+                const wordLength = dailyQuizDifficulty === 'medium' ? 2 : 3;
+                quizData = generateRandomWords(selectedChars, selectedChars, 10, wordLength);
+            }
+
+            currentQuestion = 0;
+            score = 0;
+            currentColumn = 'daily';
+            currentDifficulty = dailyQuizDifficulty;
+            
+            showScreen('quiz-screen');
+            updateQuiz();
+        }
+
+        function handleDailyChallengeCompletion() {
+            // Check if daily challenge was already completed today
+            const today = new Date().toDateString();
+            const lastCompletion = localStorage.getItem('last_daily_completion');
+            
+            if (lastCompletion !== today) {
+                // Update streak
+                let streak = parseInt(localStorage.getItem('daily_streak') || '0');
+                const yesterday = new Date();
+                yesterday.setDate(yesterday.getDate() - 1);
+                
+                if (lastCompletion === yesterday.toDateString()) {
+                    streak++;
+                } else if (!lastCompletion || lastCompletion !== today) {
+                    streak = 1; // Reset or start new streak
+                }
+                
+                localStorage.setItem('daily_streak', streak);
+                localStorage.setItem('last_daily_completion', today);
+                
+                // Update XP
+                let totalXP = parseInt(localStorage.getItem('total_xp') || '0');
+                totalXP += 50; // 50 XP for daily quiz
+                localStorage.setItem('total_xp', totalXP);
+                
+                // Show celebration message
+                const finalScore = document.getElementById('final-score');
+                finalScore.insertAdjacentHTML('afterend', 
+                    '<div style="font-size: 1.2em; color: #4caf50; margin: 15px 0;">🎉 Daily Challenge Complete! +50 XP</div>');
+            }
+        }
+
         // My Progress Functions
         function showMyProgress() {
             showScreen('progress-screen');
@@ -2147,23 +2405,6 @@
             speechSynthesis.speak(utterance);
         }
 
-        function showResults() {
-            showScreen('results-screen');
-            const percentage = Math.round((score / quizData.length) * 100);
-            document.getElementById('final-score').textContent = `${score}/${quizData.length}`;
-            document.getElementById('final-percentage').textContent = `${percentage}% Correct`;
-            
-            updateColumnProgress(currentColumn, currentDifficulty, percentage);
-            
-            const totalQuizzes = parseInt(localStorage.getItem('total_quizzes') || '0') + 1;
-            const totalCorrect = parseInt(localStorage.getItem('total_correct') || '0') + score;
-            const totalAnswers = parseInt(localStorage.getItem('total_answers') || '0') + quizData.length;
-            
-            localStorage.setItem('total_quizzes', totalQuizzes);
-            localStorage.setItem('total_correct', totalCorrect);
-            localStorage.setItem('total_answers', totalAnswers);
-        }
-
         function startPronunciationDrill() {
             showScreen('pronunciation-screen');
             pronunciationData = getAllChars().sort(() => Math.random() - 0.5);
@@ -2240,10 +2481,59 @@
             }, 1500);
         }
 
-        document.getElementById('answer-input').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter' && !document.getElementById('submit-btn').disabled) {
-                submitAnswer();
+        function setGlow(type) {
+            // Remove existing glow classes
+            const glowClasses = ['glow-blue', 'glow-purple', 'glow-green', 'glow-orange'];
+            document.querySelectorAll('.walkthrough-char, .quiz-char, .practice-target').forEach(el => {
+                glowClasses.forEach(cls => el.classList.remove(cls));
+                if (type !== 'none') {
+                    el.classList.add(`glow-${type}`);
+                }
+            });
+
+            // Update active state of glow options
+            document.querySelectorAll('.glow-option').forEach(opt => {
+                opt.classList.remove('active');
+            });
+            if (type !== 'none') {
+                document.querySelector(`.glow-option[onclick="setGlow('${type}')"]`).classList.add('active');
             }
+
+            // Save preference
+            localStorage.setItem('preferred_glow', type);
+        }
+
+        function setCursor(type) {
+            // Remove existing cursor classes
+            const cursorClasses = ['cursor-pencil', 'cursor-brush', 'cursor-hand'];
+            document.getElementById('writing-canvas').classList.remove(...cursorClasses);
+            
+            // Add new cursor class if not default
+            if (type !== 'default') {
+                document.getElementById('writing-canvas').classList.add(`cursor-${type}`);
+            }
+
+            // Update active state of cursor options
+            document.querySelectorAll('.cursor-option').forEach(opt => {
+                opt.classList.remove('active');
+            });
+            document.querySelector(`.cursor-option[onclick="setCursor('${type}')"]`).classList.add('active');
+
+            // Save preference
+            localStorage.setItem('preferred_cursor', type);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize the start button state
+            const startBtn = document.getElementById('start-daily-quiz');
+            startBtn.disabled = dailyQuizColumns.size === 0;
+
+            // Load saved preferences
+            const savedGlow = localStorage.getItem('preferred_glow');
+            if (savedGlow) setGlow(savedGlow);
+            
+            const savedCursor = localStorage.getItem('preferred_cursor');
+            if (savedCursor) setCursor(savedCursor);
         });
 
         initMenu();
