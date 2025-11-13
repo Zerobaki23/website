@@ -12,6 +12,9 @@
         }
 
         body {
+  background: linear-gradient(180deg, #01091a 0%, #001233 100%);
+  color: #c8ffff;
+
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
             background: 
                 linear-gradient(90deg, rgba(94, 184, 214, 0.05) 1px, transparent 1px),
@@ -38,7 +41,7 @@
 
         .header h1 {
             font-size: 3em;
-            color: white;
+            color: #b8ffff;
             margin-bottom: 8px;
             font-weight: 700;
             text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
@@ -52,15 +55,15 @@
         }
 
         .main-card {
-            background: white;
+            background: #0a1120;
             border-radius: 40px;
             padding: 45px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 20px 60px rgba(0, 0, 0, 0.15);
         }
 
         .section-title {
             font-size: 1.3em;
-            color: #5a6c7d;
+            color: #9edfff;
             margin-bottom: 25px;
             font-weight: 600;
         }
@@ -73,7 +76,7 @@
         }
 
         .column-card {
-            background: white;
+            background: #0a1120;
             border: 3px solid #b8dfe8;
             border-radius: 24px;
             padding: 28px 20px;
@@ -81,7 +84,7 @@
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 4px 12px rgba(0, 0, 0, 0.06);
             min-height: 140px;
             display: flex;
             flex-direction: column;
@@ -91,13 +94,13 @@
 
         .column-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 12px 30px rgba(0, 0, 0, 0.12);
             border-color: #6eb5d1;
         }
 
         .column-card .char {
             font-size: 3.2em;
-            color: #5a6c7d;
+            color: #9edfff;
             font-weight: 500;
             margin-bottom: 8px;
         }
@@ -125,12 +128,12 @@
 
         .column-card .progress-mini-fill {
             height: 100%;
-            background: linear-gradient(90deg, #5eb8d6, #4a9fc4);
+            background: linear-gradient(90deg, #00bfff, #4a9fc4);
             transition: width 0.3s ease;
         }
 
         .column-card .progress-text {
-            color: #5eb8d6;
+            color: #00bfff;
             font-size: 0.7em;
             margin-top: 4px;
             font-weight: 600;
@@ -138,7 +141,7 @@
 
         .column-card .completion-badge {
             background: #4caf50;
-            color: white;
+            color: #b8ffff;
             padding: 4px 12px;
             border-radius: 12px;
             font-size: 0.7em;
@@ -155,21 +158,21 @@
         }
 
         .practice-all-btn {
-            background: linear-gradient(135deg, #5eb8d6 0%, #6495ed 100%);
-            color: white;
+            background: linear-gradient(135deg, #00bfff 0%, #0090ff 100%);
+            color: #b8ffff;
             border: none;
             border-radius: 24px;
             padding: 24px 50px;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 8px 25px rgba(94, 184, 214, 0.3);
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 8px 25px rgba(94, 184, 214, 0.3);
             flex: 1;
             text-align: center;
         }
 
         .practice-all-btn:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 35px rgba(94, 184, 214, 0.4);
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 12px 35px rgba(94, 184, 214, 0.4);
         }
 
         .practice-all-btn .title {
@@ -189,7 +192,7 @@
         }
 
         .action-btn {
-            background: white;
+            background: #0a1120;
             border: 3px solid #b8dfe8;
             width: 90px;
             height: 90px;
@@ -197,7 +200,7 @@
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 4px 12px rgba(0, 0, 0, 0.06);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -208,7 +211,7 @@
         .action-btn:hover {
             transform: translateY(-4px);
             border-color: #6eb5d1;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
         .action-btn .icon {
@@ -239,13 +242,13 @@
         }
 
         .nav-item:hover {
-            color: white;
+            color: #b8ffff;
             transform: translateY(-2px);
         }
 
         .btn {
-            background: linear-gradient(135deg, #5eb8d6 0%, #6495ed 100%);
-            color: white;
+            background: linear-gradient(135deg, #00bfff 0%, #0090ff 100%);
+            color: #b8ffff;
             border: none;
             padding: 18px 40px;
             border-radius: 18px;
@@ -254,7 +257,7 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             font-weight: 700;
             width: 100%;
-            box-shadow: 0 6px 24px rgba(94, 184, 214, 0.35);
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 6px 24px rgba(94, 184, 214, 0.35);
             position: relative;
             overflow: hidden;
             letter-spacing: 0.02em;
@@ -277,33 +280,33 @@
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 35px rgba(94, 184, 214, 0.45);
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 10px 35px rgba(94, 184, 214, 0.45);
         }
 
         .btn:active {
             transform: translateY(-1px);
-            box-shadow: 0 4px 20px rgba(94, 184, 214, 0.35);
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 4px 20px rgba(94, 184, 214, 0.35);
         }
 
         .btn-secondary {
-            background: white;
-            color: #5eb8d6;
-            border: 3px solid #5eb8d6;
-            box-shadow: 0 4px 15px rgba(94, 184, 214, 0.15);
+            background: #0a1120;
+            color: #00bfff;
+            border: 3px solid #00bfff;
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 4px 15px rgba(94, 184, 214, 0.15);
             font-weight: 600;
         }
 
         .btn-secondary:hover {
             background: linear-gradient(135deg, #f0f9fc 0%, #e8f4f8 100%);
             border-color: #4a9fc4;
-            box-shadow: 0 6px 25px rgba(94, 184, 214, 0.25);
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 6px 25px rgba(94, 184, 214, 0.25);
         }
 
         .btn:disabled {
             opacity: 0.5;
             cursor: not-allowed;
             transform: none !important;
-            box-shadow: 0 2px 8px rgba(94, 184, 214, 0.15);
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 2px 8px rgba(94, 184, 214, 0.15);
         }
 
         .hidden {
@@ -312,11 +315,11 @@
 
         /* Study Screen Styles */
         .card {
-            background: white;
+            background: #0a1120;
             border-radius: 28px;
             padding: 35px;
             margin-bottom: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 10px 40px rgba(0, 0, 0, 0.08);
         }
 
         .walkthrough-container {
@@ -326,7 +329,7 @@
 
         .walkthrough-char {
             font-size: 10em;
-            color: #5eb8d6;
+            color: #00bfff;
             margin: 40px 0 30px 0;
             font-weight: 500;
             text-shadow: 0 4px 12px rgba(94, 184, 214, 0.2);
@@ -334,7 +337,7 @@
 
         .walkthrough-romaji {
             font-size: 3em;
-            color: #6495ed;
+            color: #0090ff;
             font-weight: 600;
             margin: 20px 0;
             letter-spacing: 0.05em;
@@ -342,7 +345,7 @@
 
         .walkthrough-tip {
             font-size: 1.05em;
-            color: #5a6c7d;
+            color: #9edfff;
             margin: 30px auto;
             padding: 20px 30px;
             background: linear-gradient(135deg, #e8f4f8 0%, #f0f8fb 100%);
@@ -353,8 +356,8 @@
         }
 
         .audio-btn {
-            background: linear-gradient(135deg, #5eb8d6 0%, #6495ed 100%);
-            color: white;
+            background: linear-gradient(135deg, #00bfff 0%, #0090ff 100%);
+            color: #b8ffff;
             border: none;
             padding: 16px 36px;
             border-radius: 16px;
@@ -364,7 +367,7 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            box-shadow: 0 6px 24px rgba(94, 184, 214, 0.35);
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 6px 24px rgba(94, 184, 214, 0.35);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             font-weight: 600;
             position: relative;
@@ -391,7 +394,7 @@
 
         .audio-btn:hover {
             transform: translateY(-3px) scale(1.03);
-            box-shadow: 0 10px 35px rgba(94, 184, 214, 0.45);
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 10px 35px rgba(94, 184, 214, 0.45);
         }
 
         .audio-btn:active {
@@ -409,7 +412,7 @@
 
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, #5eb8d6 0%, #6495ed 100%);
+            background: linear-gradient(90deg, #00bfff 0%, #0090ff 100%);
             transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -417,7 +420,7 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: 15px;
-            color: #5a6c7d;
+            color: #9edfff;
             font-weight: 600;
         }
 
@@ -429,8 +432,8 @@
         }
 
         .difficulty-btn {
-            background: white;
-            color: #5a6c7d;
+            background: #0a1120;
+            color: #9edfff;
             border: 3px solid #d0e8f0;
             padding: 24px 16px;
             border-radius: 20px;
@@ -438,7 +441,7 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             font-weight: 600;
             font-size: 0.95em;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 4px 15px rgba(0, 0, 0, 0.05);
             position: relative;
             overflow: hidden;
             text-align: center;
@@ -462,20 +465,20 @@
         .difficulty-btn:hover {
             border-color: #7ec9e3;
             transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(94, 184, 214, 0.15);
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 8px 25px rgba(94, 184, 214, 0.15);
         }
 
         .difficulty-btn.active {
-            background: linear-gradient(135deg, #5eb8d6 0%, #6495ed 100%);
-            color: white;
-            border-color: #5eb8d6;
-            box-shadow: 0 6px 25px rgba(94, 184, 214, 0.35);
+            background: linear-gradient(135deg, #00bfff 0%, #0090ff 100%);
+            color: #b8ffff;
+            border-color: #00bfff;
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 6px 25px rgba(94, 184, 214, 0.35);
             transform: translateY(-2px);
         }
 
         .difficulty-btn.active:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 35px rgba(94, 184, 214, 0.45);
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 10px 35px rgba(94, 184, 214, 0.45);
         }
 
         .difficulty-btn small {
@@ -494,7 +497,7 @@
         }
 
         .column-selector h4 {
-            color: #5eb8d6;
+            color: #00bfff;
             margin-bottom: 15px;
             text-align: center;
         }
@@ -509,7 +512,7 @@
             display: flex;
             align-items: center;
             padding: 12px;
-            background: white;
+            background: #0a1120;
             border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -523,21 +526,21 @@
         }
 
         .checkbox-label input {
-            accent-color: #5eb8d6;
+            accent-color: #00bfff;
         }
 
         /* Quiz Screen Styles */
         .quiz-header {
-            background: white;
+            background: #0a1120;
             border-radius: 24px;
             padding: 28px 35px;
             margin-bottom: 20px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 8px 30px rgba(0, 0, 0, 0.08);
         }
 
         .quiz-char {
             font-size: 9em;
-            color: #5eb8d6;
+            color: #00bfff;
             margin: 50px 0 40px 0;
             font-weight: 500;
             text-shadow: 0 6px 16px rgba(94, 184, 214, 0.25);
@@ -564,16 +567,16 @@
             text-align: center;
             margin-bottom: 24px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            background: white;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+            background: #0a1120;
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 4px 15px rgba(0, 0, 0, 0.04);
             font-weight: 500;
-            color: #5a6c7d;
+            color: #9edfff;
         }
 
         input[type="text"]:focus {
             outline: none;
-            border-color: #5eb8d6;
-            box-shadow: 0 0 0 5px rgba(94, 184, 214, 0.12), 0 6px 25px rgba(94, 184, 214, 0.2);
+            border-color: #00bfff;
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 0 0 5px rgba(94, 184, 214, 0.12), 0 6px 25px rgba(94, 184, 214, 0.2);
             transform: translateY(-2px);
         }
 
@@ -597,7 +600,7 @@
             font-weight: 700;
             text-align: center;
             animation: feedbackPop 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 8px 25px rgba(0, 0, 0, 0.12);
         }
 
         @keyframes feedbackPop {
@@ -637,7 +640,7 @@
 
         .score {
             font-size: 3.5em;
-            color: #5eb8d6;
+            color: #00bfff;
             font-weight: bold;
             margin: 20px 0;
         }
@@ -655,7 +658,7 @@
             justify-content: center;
             cursor: pointer;
             font-weight: 600;
-            color: #5eb8d6;
+            color: #00bfff;
         }
 
         .quiz-options {
@@ -668,15 +671,15 @@
             flex: 1;
             text-align: center;
             padding: 22px 20px;
-            background: white;
+            background: #0a1120;
             border: 3px solid #d0e8f0;
             border-radius: 20px;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             font-weight: 600;
             font-size: 0.95em;
-            color: #5a6c7d;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            color: #9edfff;
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 4px 15px rgba(0, 0, 0, 0.05);
             position: relative;
             overflow: hidden;
         }
@@ -702,20 +705,20 @@
         .quiz-option:hover {
             border-color: #7ec9e3;
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(94, 184, 214, 0.15);
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 8px 25px rgba(94, 184, 214, 0.15);
         }
 
         .quiz-option.active {
-            background: linear-gradient(135deg, #5eb8d6 0%, #6495ed 100%);
-            color: white;
-            border-color: #5eb8d6;
-            box-shadow: 0 6px 25px rgba(94, 184, 214, 0.35);
+            background: linear-gradient(135deg, #00bfff 0%, #0090ff 100%);
+            color: #b8ffff;
+            border-color: #00bfff;
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 6px 25px rgba(94, 184, 214, 0.35);
             transform: translateY(-2px);
         }
 
         .quiz-option.active:hover {
             transform: translateY(-4px);
-            box-shadow: 0 10px 35px rgba(94, 184, 214, 0.45);
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 10px 35px rgba(94, 184, 214, 0.45);
         }
 
         .quiz-option small {
@@ -734,7 +737,7 @@
 
         .practice-target {
             font-size: 8em;
-            color: #5eb8d6;
+            color: #00bfff;
             margin-bottom: 16px;
             font-weight: 500;
             text-shadow: 0 6px 16px rgba(94, 184, 214, 0.25);
@@ -742,7 +745,7 @@
 
         .practice-romaji {
             font-size: 2.2em;
-            color: #6495ed;
+            color: #0090ff;
             margin-bottom: 24px;
             font-weight: 600;
             letter-spacing: 0.05em;
@@ -753,14 +756,14 @@
             border-radius: 24px;
             cursor: crosshair;
             touch-action: none;
-            background: white;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+            background: #0a1120;
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 6px 20px rgba(0, 0, 0, 0.06);
             transition: all 0.3s ease;
         }
 
         .writing-canvas:hover {
             border-color: #7ec9e3;
-            box-shadow: 0 8px 28px rgba(94, 184, 214, 0.15);
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 8px 28px rgba(94, 184, 214, 0.15);
         }
 
         .canvas-controls {
@@ -772,21 +775,21 @@
 
         .canvas-btn {
             padding: 14px 28px;
-            border: 3px solid #5eb8d6;
-            background: white;
-            color: #5eb8d6;
+            border: 3px solid #00bfff;
+            background: #0a1120;
+            color: #00bfff;
             border-radius: 16px;
             cursor: pointer;
             font-weight: 600;
             font-size: 1em;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 12px rgba(94, 184, 214, 0.12);
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 4px 12px rgba(94, 184, 214, 0.12);
         }
 
         .canvas-btn:hover {
             background: linear-gradient(135deg, #f0f9fc 0%, #e8f4f8 100%);
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(94, 184, 214, 0.25);
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 6px 20px rgba(94, 184, 214, 0.25);
         }
 
         .canvas-btn:active {
@@ -795,11 +798,11 @@
 
         /* New Feature Screens */
         .feature-card {
-            background: white;
+            background: #0a1120;
             border-radius: 24px;
             padding: 40px;
             text-align: center;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 10px 40px rgba(0, 0, 0, 0.08);
         }
 
         .feature-icon {
@@ -815,7 +818,7 @@
 
         .feature-title {
             font-size: 2.2em;
-            color: #5eb8d6;
+            color: #00bfff;
             margin-bottom: 16px;
             font-weight: 700;
         }
@@ -839,16 +842,16 @@
             font-size: 1.2em;
             border: 3px solid #d0e8f0;
             border-radius: 20px;
-            background: white;
+            background: #0a1120;
             transition: all 0.3s ease;
-            color: #5a6c7d;
+            color: #9edfff;
             font-weight: 500;
         }
 
         .search-input:focus {
             outline: none;
-            border-color: #5eb8d6;
-            box-shadow: 0 0 0 5px rgba(94, 184, 214, 0.12);
+            border-color: #00bfff;
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 0 0 5px rgba(94, 184, 214, 0.12);
         }
 
         .search-icon {
@@ -870,14 +873,14 @@
 
         .result-char {
             font-size: 8em;
-            color: #5eb8d6;
+            color: #00bfff;
             margin-bottom: 20px;
             text-shadow: 0 4px 12px rgba(94, 184, 214, 0.2);
         }
 
         .result-info {
             font-size: 1.8em;
-            color: #6495ed;
+            color: #0090ff;
             font-weight: 600;
             margin-bottom: 12px;
         }
@@ -892,11 +895,11 @@
         .challenge-header {
             text-align: center;
             padding: 30px;
-            background: linear-gradient(135deg, #5eb8d6 0%, #6495ed 100%);
+            background: linear-gradient(135deg, #00bfff 0%, #0090ff 100%);
             border-radius: 24px;
-            color: white;
+            color: #b8ffff;
             margin-bottom: 24px;
-            box-shadow: 0 8px 30px rgba(94, 184, 214, 0.3);
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 8px 30px rgba(94, 184, 214, 0.3);
         }
 
         .challenge-date {
@@ -928,7 +931,7 @@
         }
 
         .challenge-item {
-            background: white;
+            background: #0a1120;
             border: 3px solid #d0e8f0;
             border-radius: 20px;
             padding: 24px;
@@ -938,9 +941,9 @@
         }
 
         .challenge-item:hover {
-            border-color: #5eb8d6;
+            border-color: #00bfff;
             transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(94, 184, 214, 0.15);
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 8px 25px rgba(94, 184, 214, 0.15);
         }
 
         .challenge-item.completed {
@@ -955,14 +958,14 @@
 
         .challenge-name {
             font-size: 1.1em;
-            color: #5a6c7d;
+            color: #9edfff;
             font-weight: 600;
             margin-bottom: 8px;
         }
 
         .challenge-points {
             font-size: 0.95em;
-            color: #5eb8d6;
+            color: #00bfff;
             font-weight: 600;
         }
 
@@ -975,17 +978,17 @@
         }
 
         .stat-card {
-            background: white;
+            background: #0a1120;
             border: 3px solid #d0e8f0;
             border-radius: 20px;
             padding: 24px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 4px 15px rgba(0, 0, 0, 0.05);
         }
 
         .stat-value {
             font-size: 2.5em;
-            color: #5eb8d6;
+            color: #00bfff;
             font-weight: 700;
             margin-bottom: 8px;
         }
@@ -997,7 +1000,7 @@
         }
 
         .progress-list {
-            background: white;
+            background: #0a1120;
             border-radius: 20px;
             padding: 28px;
             border: 3px solid #d0e8f0;
@@ -1023,13 +1026,13 @@
 
         .progress-item-char {
             font-size: 2em;
-            color: #5eb8d6;
+            color: #00bfff;
             font-weight: 600;
         }
 
         .progress-item-name {
             font-size: 1.1em;
-            color: #5a6c7d;
+            color: #9edfff;
             font-weight: 600;
         }
 
@@ -1045,13 +1048,13 @@
 
         .progress-item-fill {
             height: 100%;
-            background: linear-gradient(90deg, #5eb8d6, #6495ed);
+            background: linear-gradient(90deg, #00bfff, #0090ff);
             transition: width 0.3s ease;
         }
 
         .progress-item-percent {
             font-size: 1.2em;
-            color: #5eb8d6;
+            color: #00bfff;
             font-weight: 700;
             min-width: 60px;
             text-align: right;
@@ -1073,7 +1076,7 @@
             cursor: pointer;
             transition: transform 0.3s ease;
             border: 3px solid white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         .glow-option:hover {
@@ -1082,12 +1085,12 @@
 
         .glow-option.active {
             transform: scale(1.15);
-            box-shadow: 0 0 15px currentColor;
+            box-shadow: 0 0 20px rgba(0, 192, 255, 0.2), 0 0 15px currentColor;
         }
 
         /* Glow Classes */
         .glow-blue {
-            --glow-color: #5eb8d6;
+            --glow-color: #00bfff;
             text-shadow: 0 0 10px var(--glow-color),
                          0 0 20px var(--glow-color),
                          0 0 30px var(--glow-color);
@@ -1124,7 +1127,7 @@
         .cursor-option {
             padding: 10px 20px;
             border-radius: 12px;
-            background: white;
+            background: #0a1120;
             border: 2px solid #d0e8f0;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -1132,14 +1135,14 @@
         }
 
         .cursor-option:hover {
-            border-color: #5eb8d6;
+            border-color: #00bfff;
             transform: translateY(-2px);
         }
 
         .cursor-option.active {
-            background: #5eb8d6;
-            color: white;
-            border-color: #5eb8d6;
+            background: #00bfff;
+            color: #b8ffff;
+            border-color: #00bfff;
         }
 
         /* Custom Cursors */
@@ -1194,16 +1197,16 @@
             <div class="card" style="margin-top: 20px;">
                 <div class="section-title">🎨 Customization</div>
                 
-                <h4 style="color: #5a6c7d; margin-bottom: 10px;">Character Glow</h4>
+                <h4 style="color: #9edfff; margin-bottom: 10px;">Character Glow</h4>
                 <div class="glow-options">
-                    <div class="glow-option" style="background: #5eb8d6;" onclick="setGlow('blue')" title="Blue Glow"></div>
+                    <div class="glow-option" style="background: #00bfff;" onclick="setGlow('blue')" title="Blue Glow"></div>
                     <div class="glow-option" style="background: #9b6dff;" onclick="setGlow('purple')" title="Purple Glow"></div>
                     <div class="glow-option" style="background: #4caf50;" onclick="setGlow('green')" title="Green Glow"></div>
                     <div class="glow-option" style="background: #ff9800;" onclick="setGlow('orange')" title="Orange Glow"></div>
                     <div class="glow-option" style="background: #e0e0e0;" onclick="setGlow('none')" title="No Glow"></div>
                 </div>
 
-                <h4 style="color: #5a6c7d; margin: 20px 0 10px;">Writing Cursor</h4>
+                <h4 style="color: #9edfff; margin: 20px 0 10px;">Writing Cursor</h4>
                 <div class="cursor-options">
                     <div class="cursor-option active" onclick="setCursor('default')">✍️ Default</div>
                     <div class="cursor-option" onclick="setCursor('pencil')">📝 Pencil</div>
@@ -1387,7 +1390,7 @@
         <div id="results-screen" class="hidden">
             <div class="card results">
                 <div class="trophy">🏆</div>
-                <h2 style="color: #5eb8d6; font-size: 2em; margin-bottom: 20px;">Quiz Complete!</h2>
+                <h2 style="color: #00bfff; font-size: 2em; margin-bottom: 20px;">Quiz Complete!</h2>
                 <div class="score" id="final-score">0/0</div>
                 <div style="font-size: 1.5em; color: #666; margin-bottom: 30px;" id="final-percentage">0% Correct</div>
                 <button class="btn" onclick="retryQuiz()" style="margin-bottom: 15px;">🔄 Try Again</button>
@@ -1768,10 +1771,13 @@
                     
                     let availableChars;
                     if (mixWithOthers && selectedColumns.size > 0) {
+                        // Mix with selected columns
                         availableChars = getSelectedColumnsChars();
-                    } else if (mixWithOthers) {
+                    } else if (mixWithOthers && selectedColumns.size === 0) {
+                        // Mix with all columns
                         availableChars = getAllChars();
                     } else {
+                        // Don't mix - only use current column
                         availableChars = columnChars;
                     }
                     
@@ -2093,7 +2099,7 @@
         }
 
         function setupCanvas() {
-            ctx.strokeStyle = '#5eb8d6';
+            ctx.strokeStyle = '#00bfff';
             ctx.lineWidth = 8;
             ctx.lineCap = 'round';
             ctx.lineJoin = 'round';
